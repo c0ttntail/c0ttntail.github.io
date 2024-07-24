@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Architects+Daughter&display=swap');
+
 body {
     background: #000;
 }
@@ -6,4 +8,12 @@ div {
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
+}
+p {
+    position: fixed;
+    left: 50%;
+    transform: translate(-50%, 0%);
+    color: #fff;
+    font-family: 'Architects Daughter', arial;
+    text-align: center;
 }

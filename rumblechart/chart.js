@@ -43,4 +43,4 @@ function mouseDetect(event) {
 }
 drawStats();
 
-div.onmousemove = function(event) {mouseDetect(event)}
+div.onmousemove = function(event) {mouseDetect(event)};
