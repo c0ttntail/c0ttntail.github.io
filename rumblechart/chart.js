@@ -3,6 +3,7 @@ var div = document.getElementById("div");
 var c = document.getElementById("chart");
 var chart = c.getContext("2d");
 var size = 480;
+var stats = [0.5, 0.5, 0.5, 0.5, 0.5, 1]; // Mobility, Aerial, Spawn Pace, Range Biase, Reactivity, Creativity
 
 chart.drawImage(baseimg, 0, 0, size, size);
 
@@ -31,11 +32,11 @@ function mouseDetect(event) {
     mouseY = event.offsetY;
     mouseC = event.buttons > 0;
     mouseV = Math.min(size*.375, Math.sqrt((mouseX - size*.5)^2 + (mouseY - size*.5)^2));
-    mouseD = (180/Math.PI) * Math.atan(mouseY/mouseX) + 180*(mouseX < 0) // (.016667*Math.abs((180/Math.PI) * Math.atan(mouseY/mouseX))) % 6;
-    console.log(mouseD);
+    mouseD = 1 + Math.round(.016667*Math.abs(90+ ((180/Math.PI) * Math.atan((mouseY-240)/(mouseX-240)) + 180*(mouseX < 240)))) % 6; // 90+ ((180/Math.PI) * Math.atan((mouseY-240)/(mouseX-240)) + 180*(mouseX < 240))
+    if (mouseC == 0) {if (mouseS != 0) {mouseS = 0}} else {if (mouseS == 0) {mouseS = mouseD}};       // ((mouseS * (mouseS <= 0)) * !mouseC) + (((mouseD * (mouseS == 0)) + (mouseS * (mouseS != 0))) * mouseC)
+    if (mouseS != 0) {stats[mouseS - 1] = mouseV};
+    console.log(mouseD + " - " + mouseS + "   " + stats);
+    chart.clearRect(0,0, chart.width, chart.height)
+    drawStats(stats[3], stats[4], stats[5], stats[0], stats[1], stats[2]);
 }
 div.onmousemove = function(event) {mouseDetect(event)}
-
-var stats = [0.5, 0.5, 1, 0.5, 0.5, 0.5]; // Range Bias, Reactivity, Creativity, Mobility, Aerial, Spawn Pace
-
-drawStats(stats[0], stats[1], stats[2], stats[3], stats[4], stats[5]);
