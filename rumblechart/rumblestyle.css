@@ -1,4 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Architects+Daughter&display=swap');
+@font-face {
+    font-family: Crumble;
+    src: url("/rumblechart/CRUMBLE.otf") format("opentype");}
+@font-face {
+    font-family: Rumble;
+    src: url("/rumblechart/rumble.otf") format("opentype");}
 
 body {
     background: #000;
@@ -14,6 +20,7 @@ p {
     left: 50%;
     transform: translate(-50%, 0%);
     color: #fff;
-    font-family: 'Architects Daughter', arial;
+    font-family: 'Rumble', 'Architects Daughter', arial;
     text-align: center;
+    font-size:xx-large;
 }
