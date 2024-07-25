@@ -24,6 +24,13 @@ a {
     left: 5%;
     font-size: medium;
     color: #888; }
+a.guide {
+    position: fixed;
+    bottom: 10%;
+    left: 50%;
+    transform: translate(-50%, 0%);
+    font-size: larger;
+    color: #aaa; }
 #contain {
     position: fixed;
     left: 50%;
