@@ -1,5 +1,6 @@
 var baseimg = document.getElementById("base");
 var graphimg = document.getElementById("graph");
+var labelimg = document.getElementById("label");
 var div = document.getElementById("div");
 var c = document.getElementById("chart");
 var chart = c.getContext("2d");
@@ -7,6 +8,7 @@ var size = 480;
 var stats = [3, 3, 3, 3, 3, 3]; // Mobility, Aerial, Spawn Pace, Range Biase, Reactivity, Creativity
 var polyHue = 180
 var hexSat = 0
+var show = [true, true, true, true]
 chart.lineWidth = size/60;
 
 function drawHex() {
@@ -21,25 +23,35 @@ function drawHex() {
     chart.closePath();
     chart.fillStyle = "hsl("+polyHue+" "+hexSat+" "+(33 - p*5)+")";
     chart.fill(); };
-    chart.drawImage(graphimg, 0, 0, size, size); };
+    if (show[1] == true) {chart.drawImage(graphimg, 0, 0, size, size);}; };
 function drawStats() {
     chart.clearRect(0,0, size, size);
-    if (hexSat == 0) {chart.drawImage(baseimg, 0, 0, size, size);} else {drawHex();};
-    chart.beginPath();
-    chart.moveTo((size*.5), (size*.5 + stats[3]*size*.06375));
-    chart.lineTo((size*.5 - stats[4]*size*0.055209118), (size*.5 + stats[4]*size*0.031875));
-    chart.lineTo((size*.5 - stats[5]*size*0.055209118), (size*.5 - stats[5]*size*0.031875));
-    chart.lineTo((size*.5), (size*.5 - stats[0]*size*.06375))
-    chart.lineTo((size*.5 + stats[1]*size*0.055209118), (size*.5 - stats[1]*size*0.031875))
-    chart.lineTo((size*.5 + stats[2]*size*0.055209118), (size*.5 + stats[2]*size*0.031875))
-    chart.closePath();
-    chart.fillStyle = "hsl("+polyHue+" 100 50 / 50%)";
-    chart.strokeStyle = "hsl("+polyHue+" 100 50)";
-    chart.fill();
-    chart.stroke(); }
+    if (hexSat == 0 && show[0] == true && show[1] == true && show[2] == true) {chart.drawImage(baseimg, 0, 0, size, size);} 
+    else { 
+        if (show[0] == true) {drawHex();}
+        if (show[1] == true) {chart.drawImage(graphimg, 0, 0, size, size);};
+        if (show[2] == true) {chart.drawImage(labelimg, 0, 0, size, size);}; };
+    if (show[3] == true) {
+        chart.beginPath();
+        chart.moveTo((size*.5), (size*.5 + stats[3]*size*.06375));
+        chart.lineTo((size*.5 - stats[4]*size*0.055209118), (size*.5 + stats[4]*size*0.031875));
+        chart.lineTo((size*.5 - stats[5]*size*0.055209118), (size*.5 - stats[5]*size*0.031875));
+        chart.lineTo((size*.5), (size*.5 - stats[0]*size*.06375))
+        chart.lineTo((size*.5 + stats[1]*size*0.055209118), (size*.5 - stats[1]*size*0.031875))
+        chart.lineTo((size*.5 + stats[2]*size*0.055209118), (size*.5 + stats[2]*size*0.031875))
+        chart.closePath();
+        chart.fillStyle = "hsl("+polyHue+" 100 50 / 50%)";
+        chart.strokeStyle = "hsl("+polyHue+" 100 50)";
+        chart.fill();
+        chart.stroke();}; }
 
 document.onkeydown = (e) => {
     if (e.shiftKey == 0) {polyHue += 3 * ((e.key == "ArrowDown") - (e.key == "ArrowUp"));} else {hexSat = Math.min(100, Math.max(0, hexSat + 3 * ((e.key == "ArrowUp") - (e.key == "ArrowDown"))));}
+    if (e.key == "1") {show[0] = !show[0]};
+    if (e.key == "2") {show[1] = !show[1]};
+    if (e.key == "3") {show[2] = !show[2]};
+    if (e.key == "4") {show[3] = !show[3]};
+    console.log(e.key);
     drawStats(); };
     
 var mouseV
