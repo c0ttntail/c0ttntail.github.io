@@ -18,6 +18,12 @@ h2 {
     left: 50%;
     transform: translate(-50%, 0%);
     font-size: xx-large; }
+a {
+    position: fixed;
+    bottom: 5%;
+    left: 5%;
+    font-size: medium;
+    color: #888; }
 #contain {
     position: fixed;
     left: 50%;
