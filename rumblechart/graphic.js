@@ -1,15 +1,30 @@
 var baseimg = document.getElementById("base");
+var graphimg = document.getElementById("graph");
 var div = document.getElementById("div");
 var c = document.getElementById("chart");
 var chart = c.getContext("2d");
 var size = 480;
-var stats = [2.5, 2.5, 2.5, 2.5, 2.5, 2.5]; // Mobility, Aerial, Spawn Pace, Range Biase, Reactivity, Creativity
-var hue = 180
+var stats = [3, 3, 3, 3, 3, 3]; // Mobility, Aerial, Spawn Pace, Range Biase, Reactivity, Creativity
+var polyHue = 180
+var hexSat = 0
 chart.lineWidth = size/60;
 
+function drawHex() {
+    for (let p = 1; p < 6; p++) {
+    chart.beginPath();
+    chart.moveTo((size*.5), (size*.5 + (6 - p)*size*.06375));
+    chart.lineTo((size*.5 - (6 - p)*size*0.055209118), (size*.5 + (6 - p)*size*0.031875));
+    chart.lineTo((size*.5 - (6 - p)*size*0.055209118), (size*.5 - (6 - p)*size*0.031875));
+    chart.lineTo((size*.5), (size*.5 - (6 - p)*size*.06375))
+    chart.lineTo((size*.5 + (6 - p)*size*0.055209118), (size*.5 - (6 - p)*size*0.031875))
+    chart.lineTo((size*.5 + (6 - p)*size*0.055209118), (size*.5 + (6 - p)*size*0.031875))
+    chart.closePath();
+    chart.fillStyle = "hsl("+polyHue+" "+hexSat+" "+(33 - p*5)+")";
+    chart.fill(); };
+    chart.drawImage(graphimg, 0, 0, size, size); };
 function drawStats() {
     chart.clearRect(0,0, size, size);
-    chart.drawImage(baseimg, 0, 0, size, size);
+    if (hexSat == 0) {chart.drawImage(baseimg, 0, 0, size, size);} else {drawHex();};
     chart.beginPath();
     chart.moveTo((size*.5), (size*.5 + stats[3]*size*.06375));
     chart.lineTo((size*.5 - stats[4]*size*0.055209118), (size*.5 + stats[4]*size*0.031875));
@@ -18,15 +33,13 @@ function drawStats() {
     chart.lineTo((size*.5 + stats[1]*size*0.055209118), (size*.5 - stats[1]*size*0.031875))
     chart.lineTo((size*.5 + stats[2]*size*0.055209118), (size*.5 + stats[2]*size*0.031875))
     chart.closePath();
-    chart.fillStyle = "hsl("+hue+" 100 50 / 50%)";
-    chart.strokeStyle = "hsl("+hue+" 100 50)";
+    chart.fillStyle = "hsl("+polyHue+" 100 50 / 50%)";
+    chart.strokeStyle = "hsl("+polyHue+" 100 50)";
     chart.fill();
     chart.stroke(); }
 
 document.onkeydown = (e) => {
-    hue += 3 * ((e.key == "ArrowDown") - (e.key == "ArrowUp"));
-    chart.fillStyle = "hsl("+hue+" 100 50 / 50%)";
-    chart.strokeStyle = "hsl("+hue+" 100 50)";
+    if (e.shiftKey == 0) {polyHue += 3 * ((e.key == "ArrowDown") - (e.key == "ArrowUp"));} else {hexSat = Math.min(100, Math.max(0, hexSat + 3 * ((e.key == "ArrowUp") - (e.key == "ArrowDown"))));}
     drawStats(); };
     
 var mouseV
