@@ -39,19 +39,6 @@ function drawStats() {
     if (show[1] == true) {chart.drawImage(graphimg, 0, 0, size, size);};
     if (show[2] == true) {chart.drawImage(labelimg, 0, 0, size, size);};
     if (show[3] == true) {
-        chart.beginPath();
-        chart.moveTo((size*.5), (size*.5 + stats[3]*size*.06375));
-        chart.lineTo((size*.5 - stats[4]*size*0.055209118), (size*.5 + stats[4]*size*0.031875));
-        chart.lineTo((size*.5 - stats[5]*size*0.055209118), (size*.5 - stats[5]*size*0.031875));
-        chart.lineTo((size*.5), (size*.5 - stats[0]*size*.06375))
-        chart.lineTo((size*.5 + stats[1]*size*0.055209118), (size*.5 - stats[1]*size*0.031875))
-        chart.lineTo((size*.5 + stats[2]*size*0.055209118), (size*.5 + stats[2]*size*0.031875))
-        chart.closePath();
-        chart.shadowColor = "hsl("+polyHue+" 100 25)";
-        chart.fillStyle = "hsl("+polyHue+" 100 50 / 50%)";
-        chart.strokeStyle = "hsl("+polyHue+" 100 50)";
-        chart.fill();
-        chart.stroke();
         for (extra of extras) {
             chart.beginPath();
             chart.moveTo((size*.5), (size*.5 + extra[3]*size*.06375));
@@ -65,7 +52,20 @@ function drawStats() {
             chart.fillStyle = "hsl("+extra[6]+" 100 50 / 50%)";
             chart.strokeStyle = "hsl("+extra[6]+" 100 50)";
             chart.fill();
-            chart.stroke(); }; }; };
+            chart.stroke(); };
+        chart.beginPath();
+        chart.moveTo((size*.5), (size*.5 + stats[3]*size*.06375));
+        chart.lineTo((size*.5 - stats[4]*size*0.055209118), (size*.5 + stats[4]*size*0.031875));
+        chart.lineTo((size*.5 - stats[5]*size*0.055209118), (size*.5 - stats[5]*size*0.031875));
+        chart.lineTo((size*.5), (size*.5 - stats[0]*size*.06375))
+        chart.lineTo((size*.5 + stats[1]*size*0.055209118), (size*.5 - stats[1]*size*0.031875))
+        chart.lineTo((size*.5 + stats[2]*size*0.055209118), (size*.5 + stats[2]*size*0.031875))
+        chart.closePath();
+        chart.shadowColor = "hsl("+polyHue+" 100 25)";
+        chart.fillStyle = "hsl("+polyHue+" 100 50 / 50%)";
+        chart.strokeStyle = "hsl("+polyHue+" 100 50)";
+        chart.fill();
+        chart.stroke(); }; };
 
 document.onkeydown = (e) => {
     if (e.shiftKey == 0) {polyHue += 3 * ((e.key == "ArrowDown") - (e.key == "ArrowUp"));} else {hexSat = Math.min(100, Math.max(0, hexSat + 3 * ((e.key == "ArrowUp") - (e.key == "ArrowDown"))));}
