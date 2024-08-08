@@ -11,7 +11,7 @@ var stats = [3, 3, 3, 3, 3, 3]; // Mobility, Aerial, Spawn Pace, Range Biase, Re
 var polyHue = 180;
 var hexSat = 0;
 var sComp = false;
-var show = [true, true, true, true];
+var show = [true, true, true, true, true];
 var extras = [];
 chart.lineWidth = size/60;
 chart.shadowBlur = 15;
@@ -86,8 +86,8 @@ function mouseDetect(event) {
     if (mouseS != 0) {stats[mouseS - 1] = mouseV};
     drawStats(); };
 drawStats();
-
 contain.onmousemove = function(event) {mouseDetect(event)};
+
 add.onmousedown = function(event) {
     extras.push([stats[0], stats[1], stats[2], stats[3], stats[4], stats[5], polyHue]); 
     stats = [3, 3, 3, 3, 3, 3];
