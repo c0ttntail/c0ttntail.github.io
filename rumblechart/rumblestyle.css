@@ -18,10 +18,11 @@ h2 {
     left: 50%;
     transform: translate(-50%, 0%);
     font-size: xx-large; }
-a {
+h3 {
     position: fixed;
     bottom: 5%;
-    left: 5%;
+    left: 5%; }
+a {
     font-size: medium;
     color: #888; }
 a.guide {
