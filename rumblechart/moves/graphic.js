@@ -7,7 +7,7 @@ var sCompC = document.getElementById("sCompC");
 var c = document.getElementById("chart");
 var chart = c.getContext("2d");
 var size = 480;
-var stats = [3, 3, 3, 3, 3, 3, 3, 3, 3]; // Time, Velocity, Creativity, Situationality, Range, Damage, Height, Control, Difficulty
+var stats = [3, 3, 3, 3, 3, 3, 3, 3]; // Time, Velocity, Creativity, Situationality, Range, Damage, Height, Control, Difficulty
 var polyHue = 180
 var hexSat = 0
 var sComp = false
@@ -95,8 +95,8 @@ drawStats();
 
 contain.onmousemove = function(event) {mouseDetect(event)};
 add.onmousedown = function(event) {
-    extras.push([stats[0], stats[1], stats[2], stats[3], stats[4], stats[5], stats[6], stats[7], stats[8], polyHue]); 
-    stats = [3, 3, 3, 3, 3, 3, 3, 3, 3];
+    extras.push([stats[0], stats[1], stats[2], stats[3], stats[4], stats[5], stats[6], stats[7], polyHue]); 
+    stats = [3, 3, 3, 3, 3, 3, 3, 3];
     polyHue = 180;
     drawStats(); };
 dump.onmousedown = function(event) {extras = []; drawStats();};
