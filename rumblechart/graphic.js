@@ -81,7 +81,7 @@ document.onkeydown = (e) => {
     
 var mouseV
 var mouseS
-var statsMax = 12
+var statsMax = 11
 function mouseDetect(event) {
     var mouseC = event.buttons > 0;
     mouseV = Math.min(5, Math.sqrt((size*.5 - event.offsetX)**2 + (size*.5 - event.offsetY)**2) /30.6);
