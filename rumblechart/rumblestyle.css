@@ -8,10 +8,16 @@ body {
     text-align: center; }
 p {
     position: fixed;
-    top: 0%;
+    top: 5%;
     left: 50%;
     transform: translate(-50%, 0%);
     font-size: xx-large;}
+h1.head {
+    position: fixed;
+    top: 0%;
+    left: 50%;
+    transform: translate(-50%, -20%);
+    font-size: 40pt;}
 h2 {
     position: fixed;
     bottom: 0%;
@@ -57,21 +63,10 @@ a.guide {
     bottom: 20%;
     width: 100%;
     height: 40%; }
-#sCompC {
+#shadowedC {
     bottom: 0%;
     width: 100%;
     height: 20%; }
-#side * #box {
-    position: absolute;
-    background: #444;
-    box-shadow: 0px 0px 10px black, 0px 0px 15px black;
-    border-radius: 25px;
-    left: 50%;
-    top: 50%;
-    height: 80%;
-    width: 80%;
-    transform: translate(-50%, -50%);
-    text-align: center; }
 #box h1 {
     position: absolute;
     top: 50%;
@@ -81,3 +76,142 @@ a.guide {
     text-align: center;
     user-select: none;
     font-size: 1.5vw; }
+
+.chartset {
+    position: fixed;
+    bottom: 5%;
+    left: 5%; 
+    width: 10%;
+    font-size: medium;
+    color: #888; }
+
+.chartset-hover {
+    position: relative;
+    background: #222;
+    box-shadow: 0px 0px 10px #111, 0px 0px 15px #111;
+    border-radius: 25px;
+    padding: 5%;
+    margin: auto;
+    left: 50%;
+    display: inline-block;
+    text-align: center;
+    z-index: 2;
+}
+
+.chartset-content {
+    position: absolute;
+    display: none;
+    left: 2px;
+    margin: 0%;
+    bottom: 20px;
+    width: 100%;
+    z-index: 1;
+    background: #111;
+    border-radius: 10px 10px 0px 0px;
+}
+
+.chartset-content button {
+    display: block;
+    margin: 5% auto;
+    padding: 5% 50px;
+    background: #222;
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px #111, 0px 0px 15px #111;
+    z-index: 2;
+}
+
+.chartset:hover .chartset-content {
+    display: block;
+  }
+
+.chartset-spacer {
+    padding: 10%;
+    display: block;
+}
+
+.plural {
+    position: relative;
+    height: 30%;
+    width: 100%;
+    display: block;
+    margin: 5% 0%;
+}
+.plural button {
+    position: relative;
+    display: inline;
+    height: 75%;
+    padding: 5% 5%;
+    margin: 0% 10px;
+}
+
+#side button {
+    background: #444;
+    box-shadow: 0px 0px 10px black, 0px 0px 15px black;
+    border-radius: 25px;
+    text-align: center;
+    border: none;
+    font-size: x-large;
+}
+
+#side .under {
+    display: block;
+    position: absolute;
+    margin: 5% 10% 10%;
+    width: 80%;
+    height: 20%;
+}
+
+#side .spacer {
+    display: block;
+    position: relative;
+    margin: 40% 0% 0%
+}
+
+.under button {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    left: 0%;
+}
+
+button {
+    color: #aaa;
+    font-family: 'Rumble', arial;
+    font-size: large;
+}
+
+.color {
+    position: relative;
+    bottom: 0%;
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 30%;
+}
+
+.color div {
+    background: #444;
+    box-shadow: 0px 0px 10px black, 0px 0px 15px black;
+    font-size: large;
+    border-radius: 25px;
+    margin: 10px;
+    height: 30%;
+}
+
+.color div p {
+    color: #aaa;
+    position: relative;
+    left: -50px;
+    margin: 0%;
+    top: 25%;
+    font-size: large;
+    display: inline-block;
+}
+.color div input {
+    display: inline-block;
+    position: absolute;
+    right: 10%;
+    padding: 3% 0%;
+    outline: none;
+}

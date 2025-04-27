@@ -6,23 +6,40 @@
         <link rel="stylesheet" href="rumblestyle.css">
     </head>
     <body>
-        <p>Up or Down arrow to change hue, Holding Shift will change base saturation<br>Click on the chart to edit</p>
+        <h1 class="head">Rumble Playstyle Chart Editor</h1>
+        <p>Click on the chart to edit</p>
         <div id="contain" width="480" height="480">
             <canvas id="chart" width="480" height="480">
         </div>
         <div id="side">
-            <div id="add"><div id="box"><h1>Add a new Chart</h1></div></div>
-            <div id="dump"><div id="box"><h1>Dump extra Charts</h1></div></div>
-            <div id="sCompC"><div id="box"><h1>Change Shadow Composition</h1></div></div>
+            <div class="plural">
+                <button type="button" onclick="addChart()">Add Chart</button>
+                <button type="button" onclick="extras = []; drawStats();">Erase Charts</button>
+            </div> <div class="spacer"></div>
+            <div class="under"><button type="button" onclick="shadowed = !shadowed; drawStats();">Change Shadow Composition</button></div>
+            <div class="color">
+                <div class="hue"><p>Hue</p><input type="range" min="0" max="359" value="180" id="hue"></div>
+                <div class="sat"><p>Saturation</p><input type="range" min="0" max="100" value="100" id="sat"></div>
+                <div class="val"><p>Brightness</p><input type="range" min="0" max="100" value="50" id="val"></div>
+            </div>
         </div>
         <h2><a href="https://app.milanote.com/1RSvsc1u4lI6be/radar-chart-explained?p=mbpzPkYc07D" class="guide">Rules on the Chart HERE!</a>
             <br>1, 2, 3, 4 toggles the Base, Graph, Labels and Polygon respectively</h2>
-        <a href="https://c0ttntail.github.io/rumblechart/crawm" class="u">Here to edit CRAWM</a>
-        <a href="https://c0ttntail.github.io/rumblechart/moves" class="d">Here to edit Moves Radar</a>
+        <div class="chartset">
+            <p class="chartset-hover">Other Charts</p>
+            <div class="chartset-content">
+                <button type="button" onclick="charting([5, 5, 5, 5.5, 5, 5], 11, 'Shoeless'); drawStats();">Shoeless</button>
+                <button type="button" onclick="charting([5,5,5,5,5], 0, 'CRAWM'); drawStats();">CRAWM</button>
+                <button type="button" onclick="charting([5,5,5,5,5,5,5,5], 0, 'Moves'); drawStats();">Moves</button>
+                <button type="button" onclick="charting([10,10,10,10,10], 0, 'Guard'); drawStats();">Guard</button>
+                <button type="button" onclick="charting([5,5,5,5], 0, 'Clips'); drawStats();">Clips</button>
+                <div class="chartset-spacer"></div>
+            </div>
+        </div>
         <img id="graph" src="graph.png" hidden>
-        <img id="guide" src="guide.png" hidden>
+        <img id="guide" src="guideShoeless.png" hidden>
         <img id="base" src="base.png" hidden>
-        <img id="label" src="label.png" hidden>
+        <img id="label" src="labelShoeless.png" hidden>
         <script src="graphic.js"></script>
     </body>
 </html>
