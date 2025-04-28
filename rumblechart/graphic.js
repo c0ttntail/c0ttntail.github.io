@@ -108,9 +108,9 @@ drawStats();
 contain.onmousemove = function(event) {mouseDetect(event)};
 
 function addChart() {
-    extras.push(stats.push(color[0]).push(color[1]).push(color[2])); 
+    extras.push(stats.concat(color));
+    stats = []
     for (point in chartTemplate) stats[point] = Math.ceil(Math.floor(chartTemplate[point])*.5);
-    polyHue = 180;
     drawStats(); };
 
 hue.oninput = function() {
