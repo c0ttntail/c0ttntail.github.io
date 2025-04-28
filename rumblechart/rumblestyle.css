@@ -95,8 +95,7 @@ a.guide {
     left: 50%;
     display: inline-block;
     text-align: center;
-    z-index: 2;
-}
+    z-index: 2; }
 
 .chartset-content {
     position: absolute;
@@ -107,8 +106,7 @@ a.guide {
     width: 100%;
     z-index: 1;
     background: #111;
-    border-radius: 10px 10px 0px 0px;
-}
+    border-radius: 10px 10px 0px 0px; }
 
 .chartset-content button {
     display: block;
@@ -118,32 +116,27 @@ a.guide {
     border: none;
     border-radius: 10px;
     box-shadow: 0px 0px 10px #111, 0px 0px 15px #111;
-    z-index: 2;
-}
+    z-index: 2; }
 
 .chartset:hover .chartset-content {
-    display: block;
-  }
+    display: block; }
 
 .chartset-spacer {
     padding: 10%;
-    display: block;
-}
+    display: block; }
 
 .plural {
     position: relative;
     height: 30%;
     width: 100%;
     display: block;
-    margin: 5% 0%;
-}
+    margin: 5% 0%; }
 .plural button {
     position: relative;
     display: inline;
     height: 75%;
     padding: 5% 5%;
-    margin: 0% 10px;
-}
+    margin: 0% 10px; }
 
 #side button {
     background: #444;
@@ -151,35 +144,30 @@ a.guide {
     border-radius: 25px;
     text-align: center;
     border: none;
-    font-size: x-large;
-}
+    font-size: x-large; }
 
 #side .under {
     display: block;
     position: absolute;
     margin: 5% 10% 10%;
     width: 80%;
-    height: 20%;
-}
+    height: 20%; }
 
 #side .spacer {
     display: block;
     position: relative;
-    margin: 40% 0% 0%
-}
+    margin: 40% 0% 0% }
 
 .under button {
     position: absolute;
     height: 100%;
     width: 100%;
-    left: 0%;
-}
+    left: 0%; }
 
 button {
     color: #aaa;
     font-family: 'Rumble', arial;
-    font-size: large;
-}
+    font-size: large; }
 
 .color {
     position: relative;
@@ -187,8 +175,7 @@ button {
     display: block;
     position: absolute;
     width: 100%;
-    height: 30%;
-}
+    height: 30%; }
 
 .color div {
     background: #444;
@@ -196,8 +183,7 @@ button {
     font-size: large;
     border-radius: 25px;
     margin: 10px;
-    height: 30%;
-}
+    height: 30%; }
 
 .color div p {
     color: #aaa;
@@ -206,12 +192,14 @@ button {
     margin: 0%;
     top: 25%;
     font-size: large;
-    display: inline-block;
-}
+    display: inline-block; }
 .color div input {
     display: inline-block;
     position: absolute;
     right: 10%;
     padding: 3% 0%;
-    outline: none;
-}
+    outline: none; }
+
+body::after {
+    position: absolute; width: 0; height: 0; overflow: hidden; z-index: -1;
+    content:url(labelClips.png) url(labelCRAWM.png) url(labelGuard.png) url(labelMoves.png); }
