@@ -60,9 +60,9 @@ function drawStats() {
             for (let p = 1; p < stats.length; p++) {
                 chart.lineTo((size/2 + (size/3 * cos( p * (360/stats.length) - 90 ) )*( extra[p] / Math.floor(chartTemplate[1]) )), (size/2 + (size/3 * sin( p * (360/stats.length) - 90 ))*( extra[p] / Math.floor(chartTemplate[1]) ))); };
             chart.closePath();
-            chart.shadowColor = "hsl("+extra[stats.length+1]+" "+extra[stats.length+2]+" "+extra[stats.length+3]+")";
-            chart.fillStyle = "hsl("+extra[stats.length+1]+" "+extra[stats.length+2]+" "+extra[stats.length+3]+" / 50%)";
-            chart.strokeStyle = "hsl("+extra[stats.length+1]+" "+extra[stats.length+2]+" "+extra[stats.length+3]+")";
+            chart.shadowColor = "hsl("+extra[stats.length]+" "+extra[stats.length+1]+" "+extra[stats.length+2]+")";
+            chart.fillStyle = "hsl("+extra[stats.length]+" "+extra[stats.length+1]+" "+extra[stats.length+2]+" / 50%)";
+            chart.strokeStyle = "hsl("+extra[stats.length]+" "+extra[stats.length+1]+" "+extra[stats.length+2]+")";
             chart.fill();
             chart.stroke(); };
         chart.beginPath();
