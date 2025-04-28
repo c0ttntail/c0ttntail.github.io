@@ -12,15 +12,6 @@ var c = document.getElementById("chart");
 var chart = c.getContext("2d");
 var size = 480;
 var chartTemplate, restrict, stats, extras
-function charting(l, r, t) {
-    chartTemplate = l;
-    restrict = r;
-    fetch("label" + t + ".png")
-    .then(labelimg.src = "label" + t + ".png")
-    stats = [];
-    extras = [];
-    for (point in chartTemplate) stats[point] = Math.ceil(Math.floor(chartTemplate[point])*.5); };
-charting([5, 5, 5, 5.5, 5, 5], 11, "Shoeless");
 var color = [180, 100, 50]
 var hexSat = 0;
 var shadowed = false;
@@ -79,6 +70,17 @@ function drawStats() {
     chart.shadowColor = "hsl(0 0 0)";
     if (show[4] == true) chart.drawImage(guideimg, 0, 0, size, size); };
 
+function charting(l, r, t) {
+    chartTemplate = l;
+    restrict = r;
+    stats = [];
+    extras = [];
+    for (point in chartTemplate) stats[point] = Math.ceil(Math.floor(chartTemplate[point])*.5);
+    fetch("label" + t + ".png")
+    .then(labelimg.src = "label" + t + ".png")
+    .then(drawStats()) };
+charting([5, 5, 5, 5.5, 5, 5], 11, "Shoeless");
+
 document.onkeydown = (e) => {
     if (e.shiftKey == 0) {} else {hexSat = Math.min(100, Math.max(0, hexSat + 3 * ((e.key == "ArrowUp") - (e.key == "ArrowDown"))));}
     if (e.key == "1") show[0] = !show[0];
@@ -105,7 +107,6 @@ function mouseDetect(event) {
         if (mouseS != 3) stats[2] += statsE;
         if (mouseS != 5) stats[4] += statsE;}
     drawStats(); };
-drawStats();
 contain.onmousemove = function(event) {mouseDetect(event)};
 
 function addChart() {
