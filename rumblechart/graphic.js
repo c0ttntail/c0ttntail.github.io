@@ -70,17 +70,15 @@ function drawStats() {
     chart.shadowColor = "hsl(0 0 0)";
     if (show[4] == true) chart.drawImage(guideimg, 0, 0, size, size); };
 
-var debug
 function charting(l, r, t) {
     chartTemplate = l;
     restrict = r;
     stats = [];
     extras = [];
     for (point in chartTemplate) stats[point] = Math.ceil(Math.floor(chartTemplate[point])*.5);
+    labelimg.src = "label" + t + ".png"
     fetch("label" + t + ".png")
-    .then( function(value) {
-        debug = value
-        labelimg.src = value.url;
+    .then( function() {
         drawStats(); } ) };
 charting([5, 5, 5, 5.5, 5, 5], 11, "Shoeless");
 
