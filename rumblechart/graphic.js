@@ -80,7 +80,7 @@ function charting(l, r, t) {
     fetch("label" + t + ".png")
     .then( function(value) {
         debug = value
-        labelimg.src = "label" + t + ".png";
+        labelimg.src = value.url;
         drawStats(); } ) };
 charting([5, 5, 5, 5.5, 5, 5], 11, "Shoeless");
 
