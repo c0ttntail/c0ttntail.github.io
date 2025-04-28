@@ -77,7 +77,8 @@ function charting(l, r, t) {
     stats = [];
     extras = [];
     for (point in chartTemplate) stats[point] = Math.ceil(Math.floor(chartTemplate[point])*.5);
-    drawStats(); };
+    fetch("label" + t + ".png")
+    .then( drawStats() ) };
 charting([5, 5, 5, 5.5, 5, 5], 11, "Shoeless");
 
 document.onkeydown = (e) => {
