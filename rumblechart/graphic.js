@@ -12,11 +12,11 @@ var c = document.getElementById("chart");
 var chart = c.getContext("2d");
 var size = 480;
 var chartTemplate, restrict, stats, extras
-async function charting(l, r, t) {
+function charting(l, r, t) {
     chartTemplate = l;
     restrict = r;
-    await fetch("label" + t + ".png");
-    labelimg.src = "label" + t + ".png"
+    fetch("label" + t + ".png")
+    .then(labelimg.src = "label" + t + ".png")
     stats = [];
     extras = [];
     for (point in chartTemplate) stats[point] = Math.ceil(Math.floor(chartTemplate[point])*.5); };
