@@ -12,9 +12,10 @@ var c = document.getElementById("chart");
 var chart = c.getContext("2d");
 var size = 480;
 var chartTemplate, restrict, stats, extras
-function charting(l, r, t) {
+async function charting(l, r, t) {
     chartTemplate = l;
     restrict = r;
+    await fetch("label" + t + ".png");
     labelimg.src = "label" + t + ".png"
     stats = [];
     extras = [];
